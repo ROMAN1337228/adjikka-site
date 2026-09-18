@@ -235,7 +235,13 @@ header{position:sticky;top:0;z-index:60;background:var(--white);border-bottom:1p
 /* integrations */
 .integ{background:var(--white)}
 .integ-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:34px}
-.integ-grid div{aspect-ratio:1.6;border:1px solid var(--mist);border-radius:var(--r-btn);display:flex;align-items:center;justify-content:center;background:var(--snow);font-size:13px;font-weight:600;color:var(--zinc500);text-align:center;padding:8px}
+.integ-grid>div{min-width:0;min-height:152px;border:1px solid var(--mist);border-radius:var(--r-btn);display:flex;flex-direction:column;gap:18px;align-items:center;justify-content:center;background:var(--snow);font-size:13px;font-weight:600;color:var(--zinc500);text-align:center;padding:22px 12px}
+.integ-logos{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;height:58px}
+.integ-logos img{display:block;width:56px;height:56px;max-width:100%;object-fit:contain}
+.integ-logos img.integ-wide{width:120px;height:44px}
+.integ-logos img.integ-amo{width:96px;height:54px;padding:13px 10px;background:#0088cc;border-radius:10px}
+.integ-logos img.integ-n8n{width:72px;height:44px}
+.integ-logos img.integ-meta{width:68px;height:58px}
 
 /* ai */
 .ai{background:var(--pearl)}
@@ -386,7 +392,9 @@ body.cart-open .mcta{display:none!important}
   .show{flex-basis:260px}
   .proc-grid{grid-template-columns:repeat(2,1fr)}
   .step:after{display:none!important}
-  .integ-grid{grid-template-columns:repeat(3,1fr)}
+  .integ-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .integ-grid>div{min-height:144px;padding:20px 10px}
+  .integ-logos{gap:8px}
   .hero-cta .btn{flex:1;justify-content:center}
   .chip-card{transform:scale(.85)}
   .mcta{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:65;gap:10px;padding:12px;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-top:1px solid var(--mist)}
@@ -692,10 +700,18 @@ body.cart-open .mcta{display:none!important}
     <span class="eyebrow">Инструменты</span>
     <h2 class="h2">Работаем с инструментами, которые вы уже знаете</h2>
     <div class="integ-grid">
-      <div>Meta Ads</div><div>TikTok Ads</div><div>Google Ads</div>
-      <div>Яндекс.Директ</div><div>amoCRM</div><div>Bitrix24</div>
-      <div>Tilda</div><div>Telegram</div><div>WhatsApp</div>
-      <div>GA4 / Метрика</div><div>Make / n8n</div><div>Notion</div>
+      <div><span class="integ-logos"><img class="integ-meta" src="assets/brands/meta.svg" alt="" width="68" height="58" loading="lazy"></span><span>Meta Ads</span></div>
+      <div><span class="integ-logos"><img src="assets/brands/tiktok.png" alt="" width="56" height="56" loading="lazy"></span><span>TikTok Ads</span></div>
+      <div><span class="integ-logos"><img src="assets/brands/google-ads.svg" alt="" width="56" height="56" loading="lazy"></span><span>Google Ads</span></div>
+      <div><span class="integ-logos"><img src="assets/brands/yandex-direct.png" alt="" width="56" height="56" loading="lazy"></span><span>Яндекс Директ</span></div>
+      <div><span class="integ-logos"><img class="integ-amo" src="assets/brands/amocrm.svg" alt="" width="96" height="54" loading="lazy"></span><span>amoCRM</span></div>
+      <div><span class="integ-logos"><img class="integ-wide" src="assets/brands/bitrix24.svg" alt="" width="120" height="44" loading="lazy"></span><span>Bitrix24</span></div>
+      <div><span class="integ-logos"><img src="assets/brands/tilda.svg" alt="" width="56" height="56" loading="lazy"></span><span>Tilda</span></div>
+      <div><span class="integ-logos"><img src="assets/brands/telegram.svg" alt="" width="56" height="56" loading="lazy"></span><span>Telegram</span></div>
+      <div><span class="integ-logos"><img src="assets/brands/whatsapp.svg" alt="" width="56" height="56" loading="lazy"></span><span>WhatsApp</span></div>
+      <div><span class="integ-logos"><img src="assets/brands/google-analytics.svg" alt="" width="56" height="56" loading="lazy"><img src="assets/brands/yandex-metrika.svg" alt="" width="56" height="56" loading="lazy"></span><span>GA4 / Метрика</span></div>
+      <div><span class="integ-logos"><img src="assets/brands/make.svg" alt="" width="56" height="56" loading="lazy"><img class="integ-n8n" src="assets/brands/n8n.png" alt="" width="72" height="44" loading="lazy"></span><span>Make / n8n</span></div>
+      <div><span class="integ-logos"><img src="assets/brands/notion.png" alt="" width="56" height="56" loading="lazy"></span><span>Notion</span></div>
     </div>
   </div>
 </section>
