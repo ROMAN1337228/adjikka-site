@@ -559,6 +559,21 @@ body.cart-open .mcta{display:none!important}
   </div>
 </section>
 
+<!-- ===== PACKAGES ===== -->
+<section class="pkg" id="packages">
+  <div class="wrap">
+    <span class="eyebrow">Сеты и комбо</span>
+    <h2 class="h2">Готовые наборы под задачу и бюджет</h2>
+    <div class="pkg-grid">
+      <div class="pk"><h3>ЛИДЫ</h3><ul><li>Реклама</li><li>Привлечение заявок</li><li>Еженедельная отчётность</li></ul><div class="price">от 300 000 ₸ / мес.</div><a href="#final" class="btn btn-ghost">Выбрать</a></div>
+      <div class="pk hot"><h3>СИСТЕМА ПРОДАЖ</h3><ul><li>Трафик</li><li>Воронки и лендинги</li><li>Прогрев</li><li>Аналитика</li></ul><div class="price">от 800 000 ₸</div><a href="#final" class="btn btn-accent">Выбрать</a></div>
+      <div class="pk"><h3>ПОД КЛЮЧ</h3><ul><li>Трафик и воронки</li><li>CRM и автоматизация</li><li>Полное сопровождение</li></ul><div class="price">от 1 500 000 ₸</div><a href="#final" class="btn btn-ghost">Выбрать</a></div>
+      <div class="pk"><h3>МАСШТАБ</h3><ul><li>Оптимизация рекламы</li><li>Новые каналы</li><li>Рост ROMI</li></ul><div class="price">от 500 000 ₸ / мес.</div><a href="#final" class="btn btn-ghost">Выбрать</a></div>
+    </div>
+    <p class="pkg-note">Не знаете, что выбрать? Начните с бесплатного разбора — подскажем формат.</p>
+  </div>
+</section>
+
 <!-- ===== CASES ===== -->
 <section class="cases" id="cases">
   <div class="wrap">
@@ -733,21 +748,6 @@ body.cart-open .mcta{display:none!important}
   </div>
 </section>
 
-<!-- ===== PACKAGES ===== -->
-<section class="pkg" id="packages">
-  <div class="wrap">
-    <span class="eyebrow">Сеты и комбо</span>
-    <h2 class="h2">Готовые наборы под задачу и бюджет</h2>
-    <div class="pkg-grid">
-      <div class="pk"><h3>ЛИДЫ</h3><ul><li>Реклама</li><li>Привлечение заявок</li><li>Еженедельная отчётность</li></ul><div class="price">от 300 000 ₸ / мес.</div><a href="#final" class="btn btn-ghost">Выбрать</a></div>
-      <div class="pk hot"><h3>СИСТЕМА ПРОДАЖ</h3><ul><li>Трафик</li><li>Воронки и лендинги</li><li>Прогрев</li><li>Аналитика</li></ul><div class="price">от 800 000 ₸</div><a href="#final" class="btn btn-accent">Выбрать</a></div>
-      <div class="pk"><h3>ПОД КЛЮЧ</h3><ul><li>Трафик и воронки</li><li>CRM и автоматизация</li><li>Полное сопровождение</li></ul><div class="price">от 1 500 000 ₸</div><a href="#final" class="btn btn-ghost">Выбрать</a></div>
-      <div class="pk"><h3>МАСШТАБ</h3><ul><li>Оптимизация рекламы</li><li>Новые каналы</li><li>Рост ROMI</li></ul><div class="price">от 500 000 ₸ / мес.</div><a href="#final" class="btn btn-ghost">Выбрать</a></div>
-    </div>
-    <p class="pkg-note">Не знаете, что выбрать? Начните с бесплатного разбора — подскажем формат.</p>
-  </div>
-</section>
-
 <!-- ===== WHY ===== -->
 <section class="why">
   <div class="wrap">
@@ -891,7 +891,6 @@ const P = [
   {cat:'Сайты и страницы',   ic:'i-layout', name:'Лендинг', compo:'Структура + дизайн + тексты', price:'от 300 000 ₸', tag:'hit'},
   {cat:'Сайты и страницы',   ic:'i-grid',   name:'Многостраничный сайт', compo:'Дизайн + контент + SEO-база', price:'от 900 000 ₸', tag:''},
   {cat:'Сайты и страницы',   ic:'i-help',   name:'Квиз', compo:'Квиз-воронка с расчётом', price:'от 120 000 ₸', tag:''},
-  {cat:'Сайты и страницы',   ic:'i-code',   name:'Прототип и структура', compo:'Маркетинговый прототип', price:'от 80 000 ₸', tag:''},
   {cat:'Воронки и автоматизация', ic:'i-funnel', name:'Автоворонка продаж', compo:'Сценарий + сборка + запуск', price:'от 250 000 ₸', tag:'hit'},
   {cat:'Воронки и автоматизация', ic:'i-bot',    name:'Чат-бот TG / WhatsApp', compo:'Логика + сборка + интеграции', price:'от 120 000 ₸', tag:'ai'},
   {cat:'Воронки и автоматизация', ic:'i-mail',   name:'Email / цепочки', compo:'Сценарии касаний + настройка', price:'от 90 000 ₸', tag:''},
@@ -909,6 +908,7 @@ const TAG={hit:['hit','Хит'],ai:['ai','Live+AI'],new:['new','Новинка']
 let cart=[];
 
 const CATS=['Все','Креативы и контент','Сайты и страницы','Воронки и автоматизация','Трафик и реклама','Стратегия и аналитика'];
+const DEFAULT_CATEGORY='Трафик и реклама';
 function tileHTML(p){
   const t=p.tag?`<span class="tag ${TAG[p.tag][0]}">${TAG[p.tag][1]}</span>`:'';
   const id=p.name.replace(/"/g,'');
@@ -926,7 +926,7 @@ function renderGallery(cat){
   syncButtons();
 }
 const fEl=document.getElementById('filters');
-fEl.innerHTML=CATS.map((c,i)=>`<button class="chip${i===0?' on':''}" data-cat="${c}">${c}</button>`).join('');
+fEl.innerHTML=CATS.map(c=>`<button class="chip${c===DEFAULT_CATEGORY?' on':''}" data-cat="${c}">${c}</button>`).join('');
 fEl.addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;fEl.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));b.classList.add('on');renderGallery(b.dataset.cat);});
 document.getElementById('gallery').addEventListener('click',e=>{const b=e.target.closest('.add');if(b)toggleCart(b.dataset.name);});
 
@@ -942,7 +942,7 @@ function updateCart(){
   document.getElementById('cartSend').href='https://wa.me/77000000000?text='+msg;
   syncButtons();
 }
-renderGallery('Все');
+renderGallery(DEFAULT_CATEGORY);
 
 /* lead form → WhatsApp */
 document.getElementById('leadForm').addEventListener('submit',e=>{
